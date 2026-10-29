@@ -1133,7 +1133,7 @@ def generate_build_ninja(
                     link_step.add(Path(obj_path))
                 return
 
-            link_built_obj = obj.completed
+            link_built_obj = True if config.non_matching else obj.completed
             built_obj_path: Optional[Path] = None
             if obj.src_path is not None and obj.src_path.exists():
                 check_path_case(obj.src_path)
